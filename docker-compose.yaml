@@ -1,0 +1,24 @@
+# docker-compose -f docker-compose.yaml up
+services:
+  selenium-hub:
+    image: selenium/standalone-chrome:3.141.59-20210929
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    expose:
+      - 4444
+
+  chrome:
+    image: selenium/standalone-chrome:3.141.59-20210929
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+
+    deploy:
+      replicas: 1
+
+    entrypoint: bash -c 'SE_OPTS="-host $$HOSTNAME" /opt/bin/entry_point.sh'
