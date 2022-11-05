@@ -54,7 +54,7 @@ public class SearchPage extends BasePage {
     }
 
     public void assertThatVoiceSearchTooltipContainsText(String text) {
-        assertThat(pageBody.findElements(By.xpath("//*[contains(text(), '" + text + "')]")).size())
-                .as("Expected tooltip ["+text+"] was not found").isNotZero();
+        assertThat(pageBody.findElements(By.xpath("//*[contains(text(), '" + text + "')]")).size()).as("Expected " +
+                "tooltip [" + text + "] was not found").isNotZero();
     }
 }

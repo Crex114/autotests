@@ -3,13 +3,12 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.io.File;
 
 public class DriverFactory {
-    private static WebDriver driver;
     private final static String DRIVER_PATH = "src/test/resources/";
+    private static WebDriver driver;
 
     public static WebDriver getDriver(Browser browser) {
         File file;

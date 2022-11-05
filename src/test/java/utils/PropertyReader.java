@@ -15,9 +15,9 @@ public class PropertyReader {
         return Browser.valueOf(getProperty("browser"));
     }
 
-    private static String getProperty(String propertyname){
-        if(System.getProperty((propertyname)) == null) {
-            return  getPropertyFromFile((propertyname));
+    private static String getProperty(String propertyname) {
+        if (System.getProperty((propertyname)) == null) {
+            return getPropertyFromFile((propertyname));
         } else {
             return System.getProperty((propertyname));
         }
@@ -30,8 +30,7 @@ public class PropertyReader {
             input = new FileInputStream("src/test/resources/framework.properties");
             prop.load(input);
         } catch (IOException ex) {
-            System.out.println("Cannot read property value for " +
-                    propertyName);
+            System.out.println("Cannot read property value for " + propertyName);
             ex.printStackTrace();
         } finally {
             if (input != null) {
